@@ -5,7 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Observable;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.image.ImageView;
 
 public class DB {
@@ -135,6 +138,24 @@ public class DB {
         }
         return pid;
 	}
+	public ObservableList<Tables> getTables() throws Exception {
+		String q="Select * from TAB";
+		ObservableList<Tables> ol= FXCollections.observableArrayList();
+		Tables T;
+		if (!d.isConnected()) throw new Exception();
+		 PreparedStatement p = c.prepareStatement(q);
+	        ResultSet r = p.executeQuery();
+		while(r.next()) {
+			int num=r.getInt("TID");
+			int cap=r.getInt("TCAP");
+			int isreserved=r.getInt("TISRESERVED");
+			String time=r.getString("TTIME");
+			T=new Tables(num,cap,isreserved,time);
+			ol.add(T);
+		}
+		return ol;
+	}
+	
 	//create order
 	public static void createO(int cid,int did) throws Exception{
 		if (!d.isConnected()) throw new Exception();

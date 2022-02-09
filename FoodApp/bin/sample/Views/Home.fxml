@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.HomeController">
    <children>
       <AnchorPane layoutY="28.0" prefHeight="464.0" prefWidth="228.0" style="-fx-background-color: #f04f25">
          <children>
@@ -40,7 +40,7 @@
                <children>
                   <ImageView id="sandIcon" fitHeight="50.0" fitWidth="50.0">
                   </ImageView>
-                  <Label  id="sandLabel" prefHeight="57.0" prefWidth="162.0" text="Sandwiches">
+                  <Label id="sandLabel" prefHeight="57.0" prefWidth="162.0" text="Sandwiches">
                      <font>
                         <Font name="Tahoma Bold" size="16.0" />
                      </font>
@@ -56,7 +56,30 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <HBox fx:id="MyCartHbox" layoutY="187.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+            <HBox fx:id="tables" layoutY="189.0" onMouseClicked="#tables" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+               <children>
+                  <ImageView id="drinkIcon" fitHeight="50.0" fitWidth="50.0">
+                     <HBox.margin>
+                        <Insets top="2.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label id="tables" prefHeight="54.0" prefWidth="161.0" text="Tables" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox fx:id="MyCartHbox" layoutY="254.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
                <children>
                   <ImageView id="cartIcon" fitHeight="50.0" fitWidth="50.0">
                   </ImageView>
@@ -73,7 +96,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <HBox fx:id="AdminHbox" layoutY="237.0" onMouseClicked="#open" prefHeight="55.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+            <HBox fx:id="AdminHbox" layoutY="299.0" onMouseClicked="#open" prefHeight="55.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
                <children>
                   <ImageView id="adminIcon" fitHeight="50.0" fitWidth="50.0">
                      <HBox.margin>
@@ -110,7 +133,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <HBox fx:id="StatHbox" layoutY="289.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+            <HBox fx:id="StatHbox" layoutY="349.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
                <children>
                   <ImageView id="statIcon" fitHeight="50.0" fitWidth="50.0">
                      <HBox.margin>
