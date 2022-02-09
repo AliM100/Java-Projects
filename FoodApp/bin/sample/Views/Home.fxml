@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.HomeController">
+   <children>
+      <AnchorPane layoutY="28.0" prefHeight="464.0" prefWidth="228.0" style="-fx-background-color: #f04f25">
+         <children>
+            <HBox fx:id="DrinksHbox" layoutY="135.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+               <children>
+                  <ImageView id="drinkIcon" fitHeight="50.0" fitWidth="50.0">
+                     <HBox.margin>
+                        <Insets top="2.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label id="drinkLabel" prefHeight="54.0" prefWidth="161.0" text="Drinks">
+                     <font>
+                        <Font name="Tahoma Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox fx:id="SandwichHbox" layoutY="85.0" onMouseClicked="#open" prefHeight="40.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+               <children>
+                  <ImageView id="sandIcon" fitHeight="50.0" fitWidth="50.0">
+                  </ImageView>
+                  <Label  id="sandLabel" prefHeight="57.0" prefWidth="162.0" text="Sandwiches">
+                     <font>
+                        <Font name="Tahoma Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox fx:id="MyCartHbox" layoutY="187.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+               <children>
+                  <ImageView id="cartIcon" fitHeight="50.0" fitWidth="50.0">
+                  </ImageView>
+                  <Label id="cartLabel" prefHeight="53.0" prefWidth="129.0" text="My Cart">
+                     <font>
+                        <Font name="Tahoma Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox fx:id="AdminHbox" layoutY="237.0" onMouseClicked="#open" prefHeight="55.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+               <children>
+                  <ImageView id="adminIcon" fitHeight="50.0" fitWidth="50.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label id="adminLabel" prefHeight="55.0" prefWidth="131.0" text="Administration">
+                     <font>
+                        <Font name="Tahoma Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox fx:id="LogoutHbox" layoutY="404.0" onMouseClicked="#logout" prefHeight="40.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+               <children>
+                  <ImageView id="logoutIcon" fitHeight="50.0" fitWidth="50.0">
+                  </ImageView>
+                  <Label id="logoutLabel" prefHeight="53.0" prefWidth="128.0" text="Logout">
+                     <font>
+                        <Font name="Tahoma Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox fx:id="StatHbox" layoutY="289.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+               <children>
+                  <ImageView id="statIcon" fitHeight="50.0" fitWidth="50.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label id="statLabel" prefHeight="51.0" prefWidth="119.0" text="Statistics">
+                     <font>
+                        <Font name="Tahoma Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <HBox fx:id="logo" layoutX="35.0" layoutY="29.0" onMouseClicked="#open" prefHeight="37.0" prefWidth="158.0">
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="35.0" prefWidth="162.0" text="AbuAliWay" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <HBox id="headerBox" alignment="TOP_RIGHT" prefHeight="28.0" prefWidth="790.0" style="-fx-background-color: #F5F5F5;">
+         <children>
+            <HBox onMouseClicked="#miniAction" prefHeight="28.0" prefWidth="29.0">
+               <children>
+                  <ImageView fx:id="minimize" fitHeight="28.0" fitWidth="31.0">
+                     <image>
+                        <Image url="@../Resources/minus_30px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox onMouseClicked="#closeAction" prefHeight="28.0" prefWidth="29.0">
+               <children>
+                  <ImageView fx:id="exit" fitHeight="28.0" fitWidth="31.0">
+                     <image>
+                        <Image url="@../Resources/x_30px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="stack" layoutX="228.0" layoutY="28.0" prefHeight="464.0" prefWidth="563.0">
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,126 @@
+
+.scroll-bar:vertical{
+    -fx-background-color:  #f04f25;
+}
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: white;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}
+
+.text-field,.password-field{
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: #f04f25; 
+}
+
+.button {
+  -fx-background-color: white; 
+  -fx-text-fill: black; 
+  -fx-border-color:  #f04f25;
+}
+
+.button:hover {
+  -fx-background-color:  #f04f25;
+  -fx-text-fill: white;
+}
+.spinner .increment-arrow,
+.spinner .decrement-arrow {
+    -fx-background-color: black;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color:  #f04f25;
+}
+
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+    -fx-background-color: #ffb000;
+}
+
+.combo-box{
+    -fx-border-color:#f04f25;
+}
+.combo-box .arrow{
+    -fx-background-color:#f04f25;
+}
+.combo-box .arrow-button{
+    -fx-background-color:white;
+    -fx-border-style:none;
+}
+.combo-box .list-cell{
+    -fx-background-color:white;
+    -fx-text-fill: black; 
+}
+
+#signUp,#fpass {
+	-fx-text-fill: #f04f25;
+}
+
+#signUp:hover,#fpass:hover {
+	-fx-text-fill: #FF3400;
+}
+
+#SandwichHbox,#DrinksHbox,#MyCartHbox,#AdminHbox,#LogoutHbox,#StatHbox{
+	-fx-background-color: #f04f25;
+}
+#sandLabel,#drinkLabel,#cartLabel,#adminLabel,#logoutLabel,#statLabel{
+	-fx-text-fill: white;
+}
+#sandIcon{
+	-fx-image: url('../Resources/burger_white.png');
+}
+#drinkIcon{
+	-fx-image: url('../Resources/drink_white.png');
+}
+#cartIcon{
+	-fx-image: url('../Resources/cart_white.png');
+}
+#adminIcon{
+	-fx-image: url('../Resources/admin_white.png');
+}
+#logoutIcon{
+	-fx-image: url('../Resources/logout_white.png');
+}
+#statIcon{
+	-fx-image: url('../Resources/stat_white.png');
+}
+#SandwichHbox:hover,#DrinksHbox:hover,#MyCartHbox:hover,#AdminHbox:hover,#LogoutHbox:hover,#StatHbox:hover{
+	-fx-background-color: #FFFFFF;
+}
+#SandwichHbox:hover #sandLabel,#DrinksHbox:hover #drinkLabel,#MyCartHbox:hover #cartLabel,#AdminHbox:hover #adminLabel,#LogoutHbox:hover #logoutLabel,#StatHbox:hover #statLabel{
+	-fx-text-fill: #f04f25;
+}
+#SandwichHbox:hover #sandIcon{
+	-fx-image: url('../Resources/burger.png');
+}
+#DrinksHbox:hover #drinkIcon{
+	-fx-image: url('../Resources/drink.png');
+}
+#MyCartHbox:hover #cartIcon{
+	-fx-image: url('../Resources/cart.png');
+}
+#AdminHbox:hover #adminIcon{
+	-fx-image: url('../Resources/admin.png');
+}
+#LogoutHbox:hover #logoutIcon{
+	-fx-image: url('../Resources/logout.png');
+}
+#StatHbox:hover #statIcon{
+	-fx-image: url('../Resources/stat.png');
+}

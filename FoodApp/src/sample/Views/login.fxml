@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="816.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.loginController">
+   <children>
+      <AnchorPane layoutX="408.0" layoutY="26.0" prefHeight="286.0" prefWidth="408.0">
+         <children>
+            <TextField fx:id="userN" layoutX="81.0" layoutY="37.0" prefHeight="32.0" prefWidth="246.0" promptText="Username">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <PasswordField fx:id="pass" layoutX="81.0" layoutY="94.0" prefHeight="32.0" prefWidth="246.0" promptText="Password">
+               <font>
+                  <Font size="14.0" />
+               </font></PasswordField>
+            <Button fx:id="loginB" layoutX="81.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="32.0" prefWidth="246.0" text="Login">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label id="fpass" fx:id="fpass" layoutX="232.0" layoutY="198.0" onMouseClicked="#changepass" prefHeight="28.0" prefWidth="96.0" text="Forgot password?" underline="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label id="signUp" fx:id="signUp" layoutX="81.0" layoutY="198.0" onMouseClicked="#signup" prefHeight="28.0" prefWidth="107.0" text="New User? Register" underline="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="312.0" fitWidth="408.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Resources/welcome.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="TOP_RIGHT" layoutX="408.0" prefHeight="28.0" prefWidth="408.0" style="-fx-background-color: #E0E0E0;">
+         <children>
+            <HBox onMouseClicked="#miniAction" prefHeight="28.0" prefWidth="25.0">
+               <children>
+                  <ImageView fx:id="minimize" fitHeight="28.0" fitWidth="31.0">
+                     <image>
+                        <Image url="@../Resources/minus_30px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox onMouseClicked="#closeAction" prefHeight="28.0" prefWidth="21.0">
+               <children>
+                  <ImageView fx:id="exit" fitHeight="28.0" fitWidth="31.0">
+                     <image>
+                        <Image url="@../Resources/x_30px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

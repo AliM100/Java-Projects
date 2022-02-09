@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="563.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.DesController">
+   <children>
+      <ImageView fitHeight="251.0" fitWidth="563.0" layoutY="115.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Resources/Untitled-1.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutY="394.0" prefHeight="70.0" prefWidth="563.0" style="-fx-background-color: #FFAB00;">
+         <children>
+            <HBox fx:id="mail" onMouseEntered="#tipMail" layoutX="389.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/mail.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox fx:id="call" onMouseEntered="#tipCall" layoutX="449.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/call.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox fx:id="loc" onMouseEntered="#tipLoc" layoutX="499.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/location.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children></AnchorPane>
+      <ImageView fitHeight="103.0" fitWidth="179.0" layoutX="-13.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Resources/download.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutY="-1.0" prefHeight="116.0" prefWidth="563.0" style="-fx-background-color: #FFFF8D;">
+         <children>
+            <ImageView fitHeight="96.0" fitWidth="269.0" layoutX="147.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/res_logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

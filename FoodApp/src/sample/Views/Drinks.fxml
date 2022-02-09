@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="563.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.DrinkController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="464.0" prefWidth="563.0">
+         <content>
+            <GridPane fx:id="grid" hgap="0.0" prefHeight="464.0" prefWidth="548.0" vgap="0.0">
+               <columnConstraints>
+                  <ColumnConstraints minWidth="10.0" prefWidth="274" />
+                  <ColumnConstraints minWidth="10.0" prefWidth="274" />
+               </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

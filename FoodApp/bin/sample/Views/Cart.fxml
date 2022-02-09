@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="563.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CartController">
+   <children>
+      <HBox layoutX="14.0" layoutY="14.0" prefHeight="41.0" prefWidth="547.0">
+         <children>
+            <Label prefHeight="50.0" prefWidth="547.0" text="My Cart:">
+               <font>
+                  <Font name="Tahoma Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TableView fx:id="table" layoutX="14.0" layoutY="55.0" prefHeight="351.0" prefWidth="491.0" style="-fx-background-color: black;">
+      	<placeholder>
+      		<Label text="Nothing in Cart"/>
+      	</placeholder>
+        <columns>
+          <TableColumn fx:id="name" prefWidth="122.75" text="Name" />
+          <TableColumn fx:id="catagory" prefWidth="122.75" text="Catagory" />
+          <TableColumn fx:id="price" prefWidth="122.75" text="Price" />
+          <TableColumn fx:id="quantity" prefWidth="122.75" text="Quantity" />
+        </columns>
+      </TableView>
+      <Button Visible="false" layoutX="516.0" layoutY="55.0" mnemonicParsing="false" onMouseClicked="#remove" onMouseEntered="#tipRemove" prefHeight="41.0" prefWidth="42.0" fx:id="x">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../Resources/x_50px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="pC" layoutX="380.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#PTC" prefHeight="25.0" prefWidth="136.0" stylesheets="@style.css" text="Proceed to Checkout" visible="false" />
+   </children>
+</AnchorPane>
