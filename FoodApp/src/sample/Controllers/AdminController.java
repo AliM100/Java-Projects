@@ -23,8 +23,7 @@ import sample.Model.Sandwich;
 import sample.Model.StageFactory;
 
 public class AdminController implements Initializable {
-	static int flag=-1;//create admin only to differentiate the signup for customer and admin (admin no back button)
-	static int createAdmin=0;
+	private static int flag=-1,createAdmin=0;//create admin only to differentiate the signup for customer and admin (admin no back button)
 	//flag to differentiate between client and admin removing 1 admin 0 client
 	@FXML
 	private Button add,addAd,remove,removeAd,removeCus;

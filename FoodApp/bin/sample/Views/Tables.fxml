@@ -19,19 +19,18 @@
             </Label>
          </children>
       </HBox>
-      <TableView fx:id="table" layoutX="14.0" layoutY="55.0" prefHeight="362.0" prefWidth="523.0" style="-fx-background-color: black;">
+      <TableView fx:id="table" layoutX="14.0" layoutY="55.0" onMouseClicked="#clicked" prefHeight="362.0" prefWidth="523.0" style="-fx-background-color: black;">
       	<placeholder>
       		<Label text="No Available Products" />
       	</placeholder>
         <columns>
-          <TableColumn fx:id="num" prefWidth="74.0" text="Number" />
+          <TableColumn fx:id="tid" prefWidth="74.0" text="Number" />
             <TableColumn fx:id="capacity" prefWidth="150.0" text="Capacity" />
             <TableColumn fx:id="isreserved" prefWidth="108.0" text="Is Reserved" />
-            <TableColumn fx:id="resvtime" prefWidth="202.0" text="Reservation Time" />
+            <TableColumn fx:id="time" prefWidth="202.0" text="Reservation Time" />
         </columns>
       </TableView>
-      <Button fx:id="edit" layoutX="293.0" layoutY="425.0" mnemonicParsing="false" onAction="#edit" onMouseClicked="#removeAdmin" prefHeight="25.0" prefWidth="105.0" stylesheets="@style.css" text=" Edit Table" />
-      <Button fx:id="details" layoutX="413.0" layoutY="425.0" mnemonicParsing="false" onAction="#details" onMouseClicked="#removeAdmin" prefHeight="25.0" prefWidth="105.0" stylesheets="@style.css" text="Table Details" />
-      <Button fx:id="load" layoutX="15.0" layoutY="425.0" mnemonicParsing="false" onAction="#load" onMouseClicked="#removeAdmin" prefHeight="25.0" prefWidth="105.0" stylesheets="@style.css" text="Load Table" />
+      <Button fx:id="edit" layoutX="431.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#edittable" prefHeight="25.0" prefWidth="105.0" stylesheets="@style.css" text=" Edit Table" />
+      <Button fx:id="load" layoutX="15.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#load" prefHeight="25.0" prefWidth="105.0" stylesheets="@style.css" text="Load Table" />
    </children>
 </AnchorPane>

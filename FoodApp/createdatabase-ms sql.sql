@@ -23,14 +23,15 @@ go
 Drop table CLIENT
 Drop table MANAGER
 Drop table CREDITCARD
-Drop table ORDER
+Drop table ORDERS
 Drop table ORDERITEMS
 Drop table PRODUCT
 Drop table DELIVERYINFO
-Drop table Tabel
+Drop table TAB
 create table CLIENT (
    CID                  int                  identity(1,1),
    CNAME                varchar(50)          null,
+   CTEL                varchar(50)          null,
    CPASS                varchar(500)         null,
    EMAIL                varchar(100)         null,
    constraint PK_CLIENT primary key (CID)
@@ -89,13 +90,13 @@ create table DELIVERYINFO (
    constraint PK_DELIVERYINFO primary key (DID)
 )
 go
-create table TABLES (
+create table TAB (
    TID                  int                  identity(1,1),
-   TTYPE                varchar(50)          null,
-   TCAP                varchar(50)          null,
+   CID					int 					not null,						
+   TCAP                int         null,
    TISRESERVED          int                null,
    TTIME				DateTime			null,
-   constraint PK_PRODUCT primary key (TID)
+   constraint PK_TAB primary key (TID,CID)
 )
 go
 

@@ -22,6 +22,10 @@ public class FXMLFactory {
 					if(k.equals("DrinksHbox")) {
 						return FXMLLoader.load(FXMLFactory.class.getResource("../Views/Drinks.fxml"));
 					}
+				else {
+					if(k.equals("tables")) {
+						return FXMLLoader.load(FXMLFactory.class.getResource("../Views/Tables.fxml"));
+					}
 					else {
 						if(k.equals("MyCartHbox")) {
 							return FXMLLoader.load(FXMLFactory.class.getResource("../Views/Cart.fxml"));
@@ -47,4 +51,5 @@ public class FXMLFactory {
 		}
 		return null;
 	}
-}
+	}}
+

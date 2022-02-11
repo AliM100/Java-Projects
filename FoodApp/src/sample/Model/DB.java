@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Observable;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -138,24 +137,6 @@ public class DB {
         }
         return pid;
 	}
-	public ObservableList<Tables> getTables() throws Exception {
-		String q="Select * from TAB";
-		ObservableList<Tables> ol= FXCollections.observableArrayList();
-		Tables T;
-		if (!d.isConnected()) throw new Exception();
-		 PreparedStatement p = c.prepareStatement(q);
-	        ResultSet r = p.executeQuery();
-		while(r.next()) {
-			int num=r.getInt("TID");
-			int cap=r.getInt("TCAP");
-			int isreserved=r.getInt("TISRESERVED");
-			String time=r.getString("TTIME");
-			T=new Tables(num,cap,isreserved,time);
-			ol.add(T);
-		}
-		return ol;
-	}
-	
 	//create order
 	public static void createO(int cid,int did) throws Exception{
 		if (!d.isConnected()) throw new Exception();
@@ -179,6 +160,81 @@ public class DB {
             did= r.getInt(1);
         }
 		return did;
+	}
+	
+	public static ObservableList<Tables> getTables() throws Exception {
+		String q="Select * from TAB";
+		ObservableList<Tables> ol= FXCollections.observableArrayList();
+		Tables T;
+		if (!d.isConnected()) throw new Exception();
+		 PreparedStatement p = c.prepareStatement(q);
+	        ResultSet r = p.executeQuery();
+		while(r.next()) {
+			int tid=r.getInt("TID");
+			int cap=r.getInt("TCAP");
+			int cid=r.getInt("CID");
+			int isreserved=r.getInt("TISRESERVED");
+			
+			String time=r.getString("TTIME");
+			String re;
+			if(isreserved==1)
+				re="Yes";
+			else re="No";
+			T=new Tables(tid,cid,cap,re,time);
+			ol.add(T);
+		}
+		return ol;
+	}
+	
+	public static  int getcustid(String name,String tel) throws Exception{
+		int cid = 0;
+		if (!d.isConnected()) throw new Exception();
+	    String st = "select CID from CLIENT where CNAME='"+name+"' and CTEL='"+tel+"' ";
+	    PreparedStatement p = c.prepareStatement(st);
+        ResultSet r = p.executeQuery();
+        while(r.next()) {
+        	cid=r.getInt("CID");
+        }
+	    return cid;
+	}
+	public  static ArrayList<String>  getcustnametel(int id) throws Exception{
+		String name=null;
+		String tel=null;
+		if (!d.isConnected()) throw new Exception();
+	    String st = "select CNAME,CTEL from CLIENT where CID='"+id+"' ";
+	    PreparedStatement p = c.prepareStatement(st);
+        ResultSet r = p.executeQuery();
+        while(r.next()) {
+        	name=r.getString("CNAME");
+        	tel=r.getString("CTEL");
+        }
+        ArrayList<String> a=new ArrayList<String>();
+        a.add(0,name);
+        a.add(1, tel);
+	    return a;
+	}
+	public static void updatetable(Tables T) throws Exception{
+		if (!d.isConnected()) throw new Exception();
+		int res;
+		if(T.getIsreserved().equals("Yes"))
+			res=1;
+		else res=0;
+	    String st = "update  TAB set CID='"+T.getCid()+"', TISRESERVED='"+res+"',TTIME='"+T.getTime()+"' where TID='"+T.getTid()+"'";
+	    PreparedStatement p = c.prepareStatement(st);
+        if (p.execute()) throw new Exception();
+	 
+	}
+	
+	public  static int getcusid(int tid) throws Exception{
+		int cid = 0;
+		if (!d.isConnected()) throw new Exception();
+	    String st = "select CID from TAB where TID='"+tid+"'  ";
+	    PreparedStatement p = c.prepareStatement(st);
+        ResultSet r = p.executeQuery();
+        while(r.next()) {
+        	cid=r.getInt("CID");
+        }
+	    return cid;
 	}
 	//get did
 	public static int getDid(int cid) throws Exception{

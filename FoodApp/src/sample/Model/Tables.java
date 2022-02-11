@@ -1,26 +1,35 @@
 package sample.Model;
 
 public class Tables {
-private int tabid;
+private int tid;
 private int capacity;
-private int isreserved;
-private String reservtime;
+private String isreserved;
+private String time;
+private int cid;
 
 
-
-public Tables(int tabid, int capacity, int isreserved, String reservetime) {
+public Tables(int tid,int cid,int capacity, String isreserved, String time) {
 	super();
-	this.tabid = tabid;
+	this.tid = tid;
+	this.cid=cid;
 	this.capacity = capacity;
 	this.isreserved = isreserved;
-	this.reservtime = reservetime;
+	this.time = time;
 }
 
-public int getTabid() {
-	return tabid;
+public int getCid() {
+	return cid;
 }
-public void setTabid(int tabid) {
-	this.tabid = tabid;
+
+public void setCid(int cid) {
+	this.cid = cid;
+}
+
+public int getTid() {
+	return tid;
+}
+public void setTid(int tid) {
+	this.tid = tid;
 }
 public int getCapacity() {
 	return capacity;
@@ -28,18 +37,21 @@ public int getCapacity() {
 public void setCapacity(int capacity) {
 	this.capacity = capacity;
 }
-public int getIsreserved() {
+public String getIsreserved() {
 	return isreserved;
 }
-public void setIsreserved(int isreserved) {
+public void setIsreserved(String isreserved) {
 	this.isreserved = isreserved;
 }
-public String getReservetime() {
-	return reservtime;
+
+public String getTime() {
+	return time;
 }
-public void setReservetime(String reservetime) {
-	this.reservtime = reservetime;
+
+public void setTime(String time) {
+	this.time = time;
 }
+
 
 
 }

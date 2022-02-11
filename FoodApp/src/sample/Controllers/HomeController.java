@@ -5,10 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -20,13 +17,11 @@ import sample.Model.StageFactory;
 
 public class HomeController implements Initializable{
 	@FXML 
-	private HBox logo,StatHbox,SandwichHbox,DrinksHbox,MyCartHbox,AdminHbox,LogoutHbox;
+	private HBox logo,StatHbox,SandwichHbox,DrinksHbox,MyCartHbox,AdminHbox,LogoutHbox,tables;
 	@FXML
     private ImageView exit,minimize;
 	@FXML 
 	private AnchorPane stack;
-    @FXML
-    private HBox tables;
 	//close scene 
 	@FXML
 	public void closeAction() {
@@ -49,15 +44,6 @@ public class HomeController implements Initializable{
 		Stage s=StageFactory.getstage(((HBox)event.getSource()).getId());
 	    s.show();
 	}
-	
-    @FXML
-    void tables(MouseEvent event) throws IOException {
-    	((Stage) exit.getScene().getWindow()).close();
-    	Parent parent=FXMLLoader.load(getClass().getResource("/sample.Views/Tables.fxml"));
-		  Stage stage=new Stage();
-		  stage.setScene(new Scene(parent));
-		  stage.show();
-    }
 	//initialize home scene with description in stack anchorpane
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -65,11 +51,13 @@ public class HomeController implements Initializable{
 			if(loginController.getadmin()==false) {
 				AdminHbox.setVisible(false);
 				StatHbox.setVisible(false);
+				tables.setVisible(false);
 			}
 			else{
 				MyCartHbox.setVisible(false);
 				AdminHbox.setLayoutY(187.0);
-				StatHbox.setLayoutY(242.0);
+				StatHbox.setLayoutY(320.0);
+				tables.setLayoutY(242.0 );
 			}
 			stack.getChildren().add(FXMLFactory.get("logo"));
 		} catch (IOException e) {
