@@ -84,15 +84,7 @@ public class TablesController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		v.add(v1);
-		v.add(v2);
-		v.add(v3);
-		v.add(v4);
-		v.add(v5);
-		v.add(v6);
-		v.add(v7);
-		v.add(v8);
-		v.add(v9);
+
 		c.add(c1);
 		c.add(c2);
 		c.add(c3);
@@ -102,28 +94,31 @@ public class TablesController implements Initializable {
 		c.add(c7);
 		c.add(c8);
 		c.add(c9);
-		 ObservableList<Tables> o = FXCollections.observableArrayList();
-	    	Tables T;
-	    	try {
-				o=DB.getTables();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	    	for(int i=0;i<o.size();i++)
-	    	{
-	    		int tid=o.get(i).getTid();
-	    		VBox vb;
-	    		Label cc=c.get(i);
-	    		vb=v.get(i);
-	    		String isreserved=o.get(i).getIsreserved();
-	    		if(isreserved.equals("Yes"))
-	    		{
-	    			vb.setStyle("-fx-background-color: #FF0000;");
-	    		}else vb.setStyle("-fx-background-color: #4CC417;");
-	    		
-	    		cc.setText(String.valueOf(o.get(i).getCapacity()));
-	    	}
+   	 ObservableList<Tables> o = FXCollections.observableArrayList();
+   	Tables T;
+   	try {
+		o=DB.getTables();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+   	int i=0;
+   	for ( Node node : grid.getChildren() )
+   	{
+   		if(i<o.size()) {
+   			int tid=o.get(i).getTid();
+       		String isreserved=o.get(i).getIsreserved();
+       		Label cc=c.get(i);
+       		if(isreserved.equals("Yes"))
+       		{
+       	    (( VBox ) node).setStyle("-fx-background-color: #FF0000;");
+       		}else(( VBox ) node).setStyle("-fx-background-color: #4CC417;");
+       		cc.setText(String.valueOf(o.get(i).getCapacity()));
+       		i++;
+   		}
+   		
+   	}
+   	
 		
 	}
 	 @FXML
@@ -134,20 +129,23 @@ public class TablesController implements Initializable {
     	 ObservableList<Tables> o = FXCollections.observableArrayList();
     	Tables T;
     	o=DB.getTables();
-    	for(int i=0;i<o.size();i++)
+    	int i=0;
+    	for ( Node node : grid.getChildren() )
     	{
-    		int tid=o.get(i).getTid();
-    		VBox vb;
-    		Label cc=c.get(i);
-    		vb=v.get(i);
-    		String isreserved=o.get(i).getIsreserved();
-    		if(isreserved.equals("Yes"))
-    		{
-    			vb.setStyle("-fx-background-color: #FF0000;");
-    		}else vb.setStyle("-fx-background-color: #4CC417;");
+    		if(i<o.size()) {
+    			int tid=o.get(i).getTid();
+        		String isreserved=o.get(i).getIsreserved();
+        		Label cc=c.get(i);
+        		if(isreserved.equals("Yes"))
+        		{
+        	    (( VBox ) node).setStyle("-fx-background-color: #FF0000;");
+        		}else(( VBox ) node).setStyle("-fx-background-color: #4CC417;");
+        		cc.setText(String.valueOf(o.get(i).getCapacity()));
+        		i++;
+    		}
     		
-    		cc.setText(String.valueOf(o.get(i).getCapacity()));
     	}
+    	
     }
 
 
