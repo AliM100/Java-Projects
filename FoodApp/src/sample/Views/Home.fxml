@@ -58,12 +58,12 @@
                </cursor>
             </HBox>
           
-            <HBox fx:id="tables" layoutY="189.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+            <HBox fx:id="tables" layoutX="-2.0" layoutY="189.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
                <children>
-                  <ImageView id="drinkIcon" fitHeight="50.0" fitWidth="50.0">
-                     <HBox.margin>
-                        <Insets top="2.0" />
-                     </HBox.margin>
+                  <ImageView fitHeight="43.0" fitWidth="45.0">
+                     <image>
+                        <Image url="@../Resources/restaurant_table_24px.png" />
+                     </image>
                   </ImageView>
                   <Label id="tables" prefHeight="54.0" prefWidth="161.0" text="Tables" textFill="WHITE">
                      <font>
@@ -81,7 +81,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <HBox fx:id="MyCartHbox" layoutY="254.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+            <HBox fx:id="MyCartHbox" layoutX="-2.0" layoutY="246.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
                <children>
                   <ImageView id="cartIcon" fitHeight="50.0" fitWidth="50.0">
                   </ImageView>
@@ -98,7 +98,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <HBox fx:id="AdminHbox" layoutY="299.0" onMouseClicked="#open" prefHeight="55.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+            <HBox fx:id="AdminHbox" layoutX="-1.0" layoutY="298.0" onMouseClicked="#open" prefHeight="55.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
                <children>
                   <ImageView id="adminIcon" fitHeight="50.0" fitWidth="50.0">
                      <HBox.margin>
@@ -136,7 +136,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <HBox fx:id="StatHbox" layoutY="349.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
+            <HBox fx:id="StatHbox" layoutY="348.0" onMouseClicked="#open" prefHeight="50.0" prefWidth="228.0" spacing="10.0" stylesheets="@style.css">
                <children>
                   <ImageView id="statIcon" fitHeight="50.0" fitWidth="50.0">
                      <HBox.margin>
@@ -192,7 +192,7 @@
             </HBox>
          </children>
       </HBox>
-      <AnchorPane fx:id="stack" layoutX="228.0" layoutY="28.0" prefHeight="464.0" prefWidth="563.0">
+      <AnchorPane fx:id="stack" layoutX="228.0" layoutY="34.0" prefHeight="464.0" prefWidth="563.0">
       </AnchorPane>
    </children>
 </AnchorPane>

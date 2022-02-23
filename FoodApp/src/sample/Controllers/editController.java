@@ -5,6 +5,8 @@ package sample.Controllers;
 
 import java.util.ArrayList;
 
+import javax.annotation.processing.SupportedSourceVersion;
+
 import javafx.collections.ObservableList;
 
 import javafx.fxml.FXML;
@@ -63,8 +65,8 @@ public class editController {
     @FXML
     void Save(MouseEvent event) throws Exception {
     
-    	ObservableList<Tables> ol=t.getedit();
-    	T=ol.get(0);
+    	
+    	T=DB.getTable(temp.gettid());
     	if(isreserved.isSelected())
     	{
     		T.setIsreserved("Yes");
@@ -73,7 +75,10 @@ public class editController {
     	if(custname.getText().isEmpty() && custtel.getText().isEmpty()) {
 			T.setCid(0);
 		}else {
-			T.setCid(DB.getcustid(custname.toString(),custtel.toString()));
+			
+			int cid=DB.getcustid(custname.getText(),custtel.getText());
+		
+			T.setCid(cid);
 		}
     	T.setTime(time.getText());
     	DB.updatetable(T);
@@ -82,21 +87,23 @@ public class editController {
     @FXML
     void initialize() throws Exception {
     	
-    	ObservableList<Tables> table;
-    	table=t.getedit();
-    	tabnum.setText(""+table.get(0).getTid());
-    	tabcapacity.setText(""+table.get(0).getCapacity());
-    	if(table.get(0).getCid()!=0)
+    	 int tid=temp.gettid();
+    	System.out.println(tid);
+    	Tables table;
+    	table=DB.getTable(tid);
+    	tabnum.setText(""+tid);
+    	tabcapacity.setText(""+table.getCapacity());
+    	if(table.getCid()!=0)
     	{
-    		ArrayList <String> a=DB.getcustnametel(table.get(0).getCid());
+    		ArrayList <String> a=DB.getcustnametel(table.getCid());
     		custname.setText(a.get(0));
     		custtel.setText(a.get(1));
     	}
-    	if((table.get(0).getIsreserved()).equals("Yes"))
+    	if((table.getIsreserved()).equals("Yes"))
     	{
     		isreserved.setIndeterminate(true);
     	}
-    	time.setText(table.get(0).getTime());
+    	time.setText(table.getTime());
     }
     
     

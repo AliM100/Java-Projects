@@ -87,9 +87,16 @@ public class DB {
 	    if (p.execute()) throw new Exception();
 	}
 	//create Client
+//	public static void createClient(Customer cus) throws Exception {
+//		if (!d.isConnected()) throw new Exception();
+//        String st = "exec createCus @name="+cus.getUsername()+", @pass="+cus.getPass()+", @email='"+cus.getEmail()+"'";
+//        PreparedStatement p = c.prepareStatement(st);
+//        if (p.execute()) throw new Exception();
+//	}
+	
 	public static void createClient(Customer cus) throws Exception {
 		if (!d.isConnected()) throw new Exception();
-        String st = "exec createCus @name="+cus.getUsername()+", @pass="+cus.getPass()+", @email='"+cus.getEmail()+"'";
+        String st = "Insert into CLIENT values('"+cus.getUsername()+"','"+1+"','"+cus.getPass()+"','"+cus.getEmail()+"')";
         PreparedStatement p = c.prepareStatement(st);
         if (p.execute()) throw new Exception();
 	}
@@ -185,7 +192,29 @@ public class DB {
 		}
 		return ol;
 	}
-	
+	public static Tables getTable(int ttid) throws Exception {
+		String q="Select * from TAB where TID='"+ttid+"' ";
+		
+		Tables T = null;
+		if (!d.isConnected()) throw new Exception();
+		 PreparedStatement p = c.prepareStatement(q);
+	        ResultSet r = p.executeQuery();
+		while(r.next()) {
+			int tid=r.getInt("TID");
+			int cap=r.getInt("TCAP");
+			int cid=r.getInt("CID");
+			int isreserved=r.getInt("TISRESERVED");
+			
+			String time=r.getString("TTIME");
+			String re;
+			if(isreserved==1)
+				re="Yes";
+			else re="No";
+			T=new Tables(tid,cid,cap,re,time);
+		
+		}
+		return T;
+	}
 	public static  int getcustid(String name,String tel) throws Exception{
 		int cid = 0;
 		if (!d.isConnected()) throw new Exception();
@@ -194,6 +223,7 @@ public class DB {
         ResultSet r = p.executeQuery();
         while(r.next()) {
         	cid=r.getInt("CID");
+        	
         }
 	    return cid;
 	}
