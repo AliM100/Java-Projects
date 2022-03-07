@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,6 +36,9 @@ public class AdminController implements Initializable {
 	private TableColumn<Product,String> catagory,name;
 	@FXML
 	private TableColumn<Product,Double> price;
+
+    @FXML
+    private Button modprice;
 	//add hint
 	@FXML
 	public void tipAdd() {
@@ -60,6 +66,15 @@ public class AdminController implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+    @FXML
+    void modifyprice(MouseEvent event) throws IOException {
+     	Parent parent=FXMLLoader.load(getClass().getResource("../Views/Modify_Prices.fxml"));
+ 		  Stage stage=new Stage();
+ 		  stage.setScene(new Scene(parent));
+ 		  stage.show();
+    } 
+    
 	@FXML
 	public void remove(MouseEvent event) {
 		try {

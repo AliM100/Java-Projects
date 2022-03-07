@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="563.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="563.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AdminController">
    <children>
       <HBox layoutX="14.0" layoutY="14.0" prefHeight="41.0" prefWidth="547.0">
          <children>
@@ -23,7 +23,7 @@
       </HBox>
       <TableView fx:id="table" layoutX="14.0" layoutY="55.0" prefHeight="362.0" prefWidth="491.0" style="-fx-background-color: black;">
       	<placeholder>
-      		<Label text="No Available Products"/>
+      		<Label text="No Available Products" />
       	</placeholder>
         <columns>
           <TableColumn fx:id="catagory" prefWidth="166.333333333" text="Catagory" />
@@ -51,6 +51,7 @@
       </Button>
       <Button fx:id="addAd" layoutX="288.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#addAdmin" prefHeight="25.0" prefWidth="105.0" stylesheets="@style.css" text="Add new Admin" />
       <Button fx:id="removeAd" layoutX="400.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#removeAdmin" prefHeight="25.0" prefWidth="105.0" stylesheets="@style.css" text="Remove Admin" />
-      <Button fx:id="removeCus" layoutX="14.0" layoutY="426.0" mnemonicParsing="false" onMouseClicked="#removeClient" text="Remove Client" stylesheets="@style.css"/>
+      <Button fx:id="removeCus" layoutX="14.0" layoutY="426.0" mnemonicParsing="false" onMouseClicked="#removeClient" stylesheets="@style.css" text="Remove Client" />
+      <Button fx:id="modprice" layoutX="127.0" layoutY="426.0" mnemonicParsing="false" onMouseClicked="#modifyprice" stylesheets="@style.css" text="Modify Prices" />
    </children>
 </AnchorPane>

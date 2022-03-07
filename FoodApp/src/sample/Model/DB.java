@@ -55,6 +55,7 @@ public class DB {
         return k;
     }
 	
+	
 	//get all managers
 	public static ArrayList<Manager> getManagers(){
 		ArrayList<Manager> al=new ArrayList<Manager>();
@@ -650,6 +651,27 @@ public class DB {
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
+		}
+		//modify prices on $
+		public static void updateprices(float oldp, float newp) {
+			try {
+	            if (!d.isConnected()) throw new Exception();
+	            String st = "SELECT PPRICE,PID from PRODUCT;";
+	            PreparedStatement p = c.prepareStatement(st);
+	            ResultSet r = p.executeQuery();
+	            while(r.next()) {
+	            	int id=r.getInt("PID");
+	            	float price=r.getFloat("PPRICE");
+	            	price=price/oldp;
+	            	float n=price*newp;
+	            	 String st1 = "UPDATE PRODUCT set PPRICE='"+n+"' where PID='"+id+"' ;";
+	 	            PreparedStatement p1 = c.prepareStatement(st1);
+	 	           if (p1.execute()) throw new Exception();
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+			
 		}
 		
 }
