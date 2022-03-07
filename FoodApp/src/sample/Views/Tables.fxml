@@ -158,7 +158,7 @@
                <children>
                   <HBox prefHeight="19.0" prefWidth="165.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="96.0" text="Table Number: " />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="96.0" text="Table Number: 9" />
                      </children>
                   </HBox>
                   <HBox prefHeight="28.0" prefWidth="165.0">

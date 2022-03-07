@@ -20,18 +20,10 @@ go
 
 use foodDB
 go
-Drop table CLIENT
-Drop table MANAGER
-Drop table CREDITCARD
-Drop table ORDERS
-Drop table ORDERITEMS
-Drop table PRODUCT
-Drop table DELIVERYINFO
-Drop table TAB
+
 create table CLIENT (
    CID                  int                  identity(1,1),
    CNAME                varchar(50)          null,
-   CTEL                varchar(50)          null,
    CPASS                varchar(500)         null,
    EMAIL                varchar(100)         null,
    constraint PK_CLIENT primary key (CID)
@@ -96,6 +88,7 @@ create table TAB (
    TCAP                int         null,
    TISRESERVED          int                null,
    TTIME				DateTime			null,
+   TTEL				int					null,
    constraint PK_TAB primary key (TID,CID)
 )
 go
@@ -648,3 +641,13 @@ CREATE  view Drink as
 go
 
 insert into manager values('admin','admin','AbuAli.Way@outlook.com',1)
+exec createCus @name='ali',@pass='ali',@email='ali@gamil.com' 
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,2,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,4,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,3,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,6,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,5,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,10,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,6,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,2,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,6,null,null,null)

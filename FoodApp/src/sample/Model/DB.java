@@ -88,19 +88,19 @@ public class DB {
 	    if (p.execute()) throw new Exception();
 	}
 	//create Client
-//	public static void createClient(Customer cus) throws Exception {
-//		if (!d.isConnected()) throw new Exception();
-//        String st = "exec createCus @name="+cus.getUsername()+", @pass="+cus.getPass()+", @email='"+cus.getEmail()+"'";
-//        PreparedStatement p = c.prepareStatement(st);
-//        if (p.execute()) throw new Exception();
-//	}
-	
 	public static void createClient(Customer cus) throws Exception {
 		if (!d.isConnected()) throw new Exception();
-        String st = "Insert into CLIENT values('"+cus.getUsername()+"','"+1+"','"+cus.getPass()+"','"+cus.getEmail()+"')";
+        String st = "exec createCus @name="+cus.getUsername()+", @pass="+cus.getPass()+", @email='"+cus.getEmail()+"'";
         PreparedStatement p = c.prepareStatement(st);
         if (p.execute()) throw new Exception();
 	}
+	
+//	public static void createClient(Customer cus) throws Exception {
+//		if (!d.isConnected()) throw new Exception();
+//        String st = "Insert into CLIENT values('"+cus.getUsername()+"','"+1+"','"+cus.getPass()+"','"+cus.getEmail()+"')";
+//        PreparedStatement p = c.prepareStatement(st);
+//        if (p.execute()) throw new Exception();
+//	}
 	//get Cid
 	public static int getCid(String name) throws Exception{
 		int cid = 0;
@@ -182,13 +182,13 @@ public class DB {
 			int cap=r.getInt("TCAP");
 			int cid=r.getInt("CID");
 			int isreserved=r.getInt("TISRESERVED");
-			
+			int tel=r.getInt("TTEL");
 			String time=r.getString("TTIME");
 			String re;
 			if(isreserved==1)
 				re="Yes";
 			else re="No";
-			T=new Tables(tid,cid,cap,re,time);
+			T=new Tables(tid,cid,cap,re,time,tel);
 			ol.add(T);
 		}
 		return ol;
@@ -205,21 +205,21 @@ public class DB {
 			int cap=r.getInt("TCAP");
 			int cid=r.getInt("CID");
 			int isreserved=r.getInt("TISRESERVED");
-			
+			int tel=r.getInt("TTEL");
 			String time=r.getString("TTIME");
 			String re;
 			if(isreserved==1)
 				re="Yes";
 			else re="No";
-			T=new Tables(tid,cid,cap,re,time);
+			T=new Tables(tid,cid,cap,re,time,tel);
 		
 		}
 		return T;
 	}
-	public static  int getcustid(String name,String tel) throws Exception{
+	public static  int getcustid(String name) throws Exception{
 		int cid = 0;
 		if (!d.isConnected()) throw new Exception();
-	    String st = "select CID from CLIENT where CNAME='"+name+"' and CTEL='"+tel+"' ";
+	    String st = "select CID from CLIENT where CNAME='"+name+"'  ";
 	    PreparedStatement p = c.prepareStatement(st);
         ResultSet r = p.executeQuery();
         while(r.next()) {
@@ -228,21 +228,30 @@ public class DB {
         }
 	    return cid;
 	}
-	public  static ArrayList<String>  getcustnametel(int id) throws Exception{
-		String name=null;
-		String tel=null;
+	public static  int gettabtel(int tid) throws Exception{
+		int num = 0;
 		if (!d.isConnected()) throw new Exception();
-	    String st = "select CNAME,CTEL from CLIENT where CID='"+id+"' ";
+	    String st = "select TTEL from TAB where TID='"+tid+"'  ";
+	    PreparedStatement p = c.prepareStatement(st);
+        ResultSet r = p.executeQuery();
+        while(r.next()) {
+        	num=r.getInt("TTEL");
+        	
+        }
+	    return num;
+	}
+	public  static String  getcustnametel(int id) throws Exception{
+		String name=null;
+		
+		if (!d.isConnected()) throw new Exception();
+	    String st = "select CNAME from CLIENT where CID='"+id+"' ";
 	    PreparedStatement p = c.prepareStatement(st);
         ResultSet r = p.executeQuery();
         while(r.next()) {
         	name=r.getString("CNAME");
-        	tel=r.getString("CTEL");
+        
         }
-        ArrayList<String> a=new ArrayList<String>();
-        a.add(0,name);
-        a.add(1, tel);
-	    return a;
+	    return name;
 	}
 	public static void updatetable(Tables T) throws Exception{
 		if (!d.isConnected()) throw new Exception();
@@ -250,7 +259,7 @@ public class DB {
 		if(T.getIsreserved().equals("Yes"))
 			res=1;
 		else res=0;
-	    String st = "update  TAB set CID='"+T.getCid()+"', TISRESERVED='"+res+"',TTIME='"+T.getTime()+"' where TID='"+T.getTid()+"'";
+	    String st = "update  TAB set CID='"+T.getCid()+"', TISRESERVED='"+res+"',TTIME='"+T.getTime()+"',TTEL='"+T.getTel()+"' where TID='"+T.getTid()+"'";
 	    PreparedStatement p = c.prepareStatement(st);
         if (p.execute()) throw new Exception();
 	 

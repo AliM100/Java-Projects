@@ -64,20 +64,18 @@ public class editController {
 
     @FXML
     void Save(MouseEvent event) throws Exception {
-    
-    	
     	T=DB.getTable(temp.gettid());
     	if(isreserved.isSelected())
     	{
     		T.setIsreserved("Yes");
     	}
     	else T.setIsreserved("No");
-    	if(custname.getText().isEmpty() && custtel.getText().isEmpty()) {
+    	if(custname.getText().isEmpty()) {
 			T.setCid(0);
 		}else {
 			
-			int cid=DB.getcustid(custname.getText(),custtel.getText());
-		
+			int cid=DB.getcustid(custname.getText());
+			T.setTel(Integer.parseInt(custtel.getText()));
 			T.setCid(cid);
 		}
     	T.setTime(time.getText());
@@ -95,9 +93,9 @@ public class editController {
     	tabcapacity.setText(""+table.getCapacity());
     	if(table.getCid()!=0)
     	{
-    		ArrayList <String> a=DB.getcustnametel(table.getCid());
-    		custname.setText(a.get(0));
-    		custtel.setText(a.get(1));
+    		String a=DB.getcustnametel(table.getCid());
+    		custname.setText(a);
+    		custtel.setText(String.valueOf(DB.gettabtel(tid)));
     	}
     	if((table.getIsreserved()).equals("Yes"))
     	{

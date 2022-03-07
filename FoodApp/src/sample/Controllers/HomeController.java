@@ -52,6 +52,7 @@ public class HomeController implements Initializable{
 				AdminHbox.setVisible(false);
 				StatHbox.setVisible(false);
 				tables.setVisible(false);
+				MyCartHbox.setLayoutY(187.0);
 			}
 			else{
 				MyCartHbox.setVisible(false);

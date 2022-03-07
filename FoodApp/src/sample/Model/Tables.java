@@ -5,16 +5,25 @@ private int tid;
 private int capacity;
 private String isreserved;
 private String time;
-private int cid;
+private int cid,tel;
 
 
-public Tables(int tid,int cid,int capacity, String isreserved, String time) {
+public Tables(int tid,int cid,int capacity, String isreserved, String time,int tel) {
 	super();
 	this.tid = tid;
 	this.cid=cid;
 	this.capacity = capacity;
 	this.isreserved = isreserved;
 	this.time = time;
+	this.tel=tel;
+}
+
+public int getTel() {
+	return tel;
+}
+
+public void setTel(int tel) {
+	this.tel = tel;
 }
 
 public int getCid() {
