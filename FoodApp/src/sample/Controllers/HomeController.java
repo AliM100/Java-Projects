@@ -35,7 +35,7 @@ public class HomeController implements Initializable{
 	@FXML
     public void open(MouseEvent event) throws IOException {
 		stack.getChildren().clear();
-		stack.getChildren().add(FXMLFactory.get(((HBox)event.getSource()).getId()));
+			stack.getChildren().add(FXMLFactory.get(((HBox)event.getSource()).getId()));
 		MyDecoration.FadeS(stack);
     }
 	@FXML

@@ -4,11 +4,13 @@ public class Tables {
 private int tid;
 private int capacity;
 private String isreserved;
-private String time;
+private String time,name;
+
+
 private int cid,tel;
 
 
-public Tables(int tid,int cid,int capacity, String isreserved, String time,int tel) {
+public Tables(int tid,int cid,int capacity, String isreserved, String time,int tel,String name) {
 	super();
 	this.tid = tid;
 	this.cid=cid;
@@ -16,6 +18,7 @@ public Tables(int tid,int cid,int capacity, String isreserved, String time,int t
 	this.isreserved = isreserved;
 	this.time = time;
 	this.tel=tel;
+	this.name=name;
 }
 
 public int getTel() {
@@ -60,7 +63,13 @@ public String getTime() {
 public void setTime(String time) {
 	this.time = time;
 }
+public String getName() {
+	return name;
+}
 
+public void setName(String name) {
+	this.name = name;
+}
 
 
 }

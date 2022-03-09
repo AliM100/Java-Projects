@@ -89,6 +89,7 @@ create table TAB (
    TISRESERVED          int                null,
    TTIME				DateTime			null,
    TTEL				int					null,
+   TCNAME			varchar(100)			null,
    constraint PK_TAB primary key (TID,CID)
 )
 go
@@ -642,12 +643,12 @@ go
 
 insert into manager values('admin','admin','AbuAli.Way@outlook.com',1)
 exec createCus @name='ali',@pass='ali',@email='ali@gamil.com' 
-insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,2,null,null,null)
-insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,4,null,null,null)
-insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,3,null,null,null)
-insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,6,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL,TCNAME) values (0,2,null,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL,TCNAME) values (0,4,null,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL,TCNAME) values (0,3,null,null,null,null)
+/*insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,6,null,null,null)
 insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,5,null,null,null)
 insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,10,null,null,null)
 insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,6,null,null,null)
 insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,2,null,null,null)
-insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,6,null,null,null)
+insert into TAB (Cid,TCAP,TISRESERVED,TTIME,TTEL) values (0,6,null,null,null)*/

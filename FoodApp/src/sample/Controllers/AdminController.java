@@ -29,7 +29,7 @@ public class AdminController implements Initializable {
 	private static int flag=-1,createAdmin=0;//create admin only to differentiate the signup for customer and admin (admin no back button)
 	//flag to differentiate between client and admin removing 1 admin 0 client
 	@FXML
-	private Button add,addAd,remove,removeAd,removeCus;
+	private Button add,addAd,remove,removeAd,removeCus,addtab;
 	@FXML
 	private TableView<Product> table;
 	@FXML
@@ -74,7 +74,13 @@ public class AdminController implements Initializable {
  		  stage.setScene(new Scene(parent));
  		  stage.show();
     } 
-    
+    @FXML
+    void addtable(MouseEvent event) throws IOException {
+     	Parent parent=FXMLLoader.load(getClass().getResource("../Views/addtable.fxml"));
+ 		  Stage stage=new Stage();
+ 		  stage.setScene(new Scene(parent));
+ 		  stage.show();
+    } 
 	@FXML
 	public void remove(MouseEvent event) {
 		try {

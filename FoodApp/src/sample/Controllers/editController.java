@@ -70,21 +70,36 @@ public class editController {
     		T.setIsreserved("Yes");
     	}
     	else T.setIsreserved("No");
+    	
     	if(custname.getText().isEmpty()) {
+    		System.out.println("empty");
 			T.setCid(0);
-		}else {
-			
-			int cid=DB.getcustid(custname.getText());
-			T.setTel(Integer.parseInt(custtel.getText()));
-			T.setCid(cid);
+			T.setTel(0);
+			T.setName("");
+			T.setTime(time.getText());
 		}
-    	T.setTime(time.getText());
+    	else if(DB.getcustid(custname.getText())==0 && !(custname.getText().isEmpty()))
+    	{
+    		System.out.println("not cust");
+    		T.setCid(0);
+    		T.setName(custname.getText());
+    	 	T.setTel(Integer.parseInt(custtel.getText()));
+        	T.setTime(time.getText());
+    	}
+    	else {
+    		System.out.println("cust");
+			int cid=DB.getcustid(custname.getText());
+			
+			T.setCid(cid);
+		 	T.setTel(Integer.parseInt(custtel.getText()));
+	    	T.setTime(time.getText());
+		}
+   
     	DB.updatetable(T);
     }
     
     @FXML
     void initialize() throws Exception {
-    	
     	 int tid=temp.gettid();
     	System.out.println(tid);
     	Tables table;
@@ -96,6 +111,10 @@ public class editController {
     		String a=DB.getcustnametel(table.getCid());
     		custname.setText(a);
     		custtel.setText(String.valueOf(DB.gettabtel(tid)));
+    	}else {
+    		String a=table.getName();
+    		custname.setText(a);
+    		custtel.setText(String.valueOf(table.getTel()));
     	}
     	if((table.getIsreserved()).equals("Yes"))
     	{

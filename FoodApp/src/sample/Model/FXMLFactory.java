@@ -42,6 +42,12 @@ public class FXMLFactory {
 									if(k.equals("login")) {
 										return FXMLLoader.load(FXMLFactory.class.getResource("../Views/login.fxml"));
 									}
+		
+								else {
+									if(k.equals("tabgrid")) {
+										return FXMLLoader.load(FXMLFactory.class.getResource("../Views/tablegrid.fxml"));
+									}
+		
 								}
 							}
 						}
@@ -51,5 +57,5 @@ public class FXMLFactory {
 		}
 		return null;
 	}
-	}}
+	}}}
 
