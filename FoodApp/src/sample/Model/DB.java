@@ -45,7 +45,7 @@ public class DB {
 		DB db = DB.getInstance();
         try {
             if (!db.isConnected()) 
-            	db.connect("DESKTOP-REE672I","foodDB","a","a");
+            	db.connect("ALI-HASSAN","foodDB","sa","ali123ali");
             if (!db.isConnected()) throw new Exception();
         } catch (Exception e) {
         	k=0;

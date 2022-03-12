@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 public class StageFactory {
 	public static Stage getstage(String s) throws IOException {
 		Stage stage = new Stage();
+		
 	    if(s.equals("x"))
 	    	stage.setScene(new Scene(FXMLLoader.load(StageFactory.class.getResource("../Views/RemoveC.fxml"))));
 	    else if(s.equals("pC"))
@@ -32,6 +33,15 @@ public class StageFactory {
 	    	stage.setScene(new Scene(FXMLLoader.load(StageFactory.class.getResource("../Views/Home.fxml"))));
 	    else if(s.equals("fpass"))
 	    	stage.setScene(new Scene(FXMLLoader.load(StageFactory.class.getResource("../Views/Cpass.fxml"))));
+	    else if(s.equals("tables"))
+	    	stage.setScene(new Scene(FXMLLoader.load(StageFactory.class.getResource("../Views/details_table_row.fxml"))));
+	    else if(s.equals("addtab"))
+	    	stage.setScene(new Scene(FXMLLoader.load(StageFactory.class.getResource("../Views/addtable.fxml"))));
+	    else if(s.equals("modprice"))
+	    	stage.setScene(new Scene(FXMLLoader.load(StageFactory.class.getResource("../Views/Modify_Prices.fxml"))));
+	    else if(s.equals("tablesGrid"))
+	    	stage.setScene(new Scene(FXMLLoader.load(StageFactory.class.getResource("../Views/edit_table_row.fxml"))));
+	    
 	    stage.getIcons().add(new Image(StageFactory.class.getResourceAsStream("../Resources/logo.png")));
 	    MyDecoration.Fade(stage);
 	    MyDecoration.makeDraggable(stage);

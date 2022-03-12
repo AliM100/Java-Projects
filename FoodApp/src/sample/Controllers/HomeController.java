@@ -17,7 +17,7 @@ import sample.Model.StageFactory;
 
 public class HomeController implements Initializable{
 	@FXML 
-	private HBox logo,StatHbox,SandwichHbox,DrinksHbox,MyCartHbox,AdminHbox,LogoutHbox,tables;
+	private HBox logo,StatHbox,SandwichHbox,DrinksHbox,MyCartHbox,AdminHbox,LogoutHbox,tablesHbox;
 	@FXML
     private ImageView exit,minimize;
 	@FXML 
@@ -35,7 +35,7 @@ public class HomeController implements Initializable{
 	@FXML
     public void open(MouseEvent event) throws IOException {
 		stack.getChildren().clear();
-			stack.getChildren().add(FXMLFactory.get(((HBox)event.getSource()).getId()));
+		stack.getChildren().add(FXMLFactory.get(((HBox)event.getSource()).getId()));
 		MyDecoration.FadeS(stack);
     }
 	@FXML
@@ -51,14 +51,13 @@ public class HomeController implements Initializable{
 			if(loginController.getadmin()==false) {
 				AdminHbox.setVisible(false);
 				StatHbox.setVisible(false);
-				tables.setVisible(false);
-				MyCartHbox.setLayoutY(187.0);
+				tablesHbox.setVisible(false);
+				MyCartHbox.setLayoutY(185);
 			}
 			else{
 				MyCartHbox.setVisible(false);
-				AdminHbox.setLayoutY(187.0);
-				StatHbox.setLayoutY(320.0);
-				tables.setLayoutY(242.0 );
+				AdminHbox.setLayoutY(235);
+				StatHbox.setLayoutY(285);
 			}
 			stack.getChildren().add(FXMLFactory.get("logo"));
 		} catch (IOException e) {

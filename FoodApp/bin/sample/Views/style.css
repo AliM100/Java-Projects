@@ -100,10 +100,13 @@
 #statIcon{
 	-fx-image: url('../Resources/stat_white.png');
 }
-#SandwichHbox:hover,#DrinksHbox:hover,#MyCartHbox:hover,#AdminHbox:hover,#LogoutHbox:hover,#StatHbox:hover{
+#tablesIcon{
+	-fx-image: url('../Resources/restaurant_table_white.png');
+}
+#SandwichHbox:hover,#DrinksHbox:hover,#MyCartHbox:hover,#AdminHbox:hover,#LogoutHbox:hover,#StatHbox:hover,#tablesHbox:hover{
 	-fx-background-color: #FFFFFF;
 }
-#SandwichHbox:hover #sandLabel,#DrinksHbox:hover #drinkLabel,#MyCartHbox:hover #cartLabel,#AdminHbox:hover #adminLabel,#LogoutHbox:hover #logoutLabel,#StatHbox:hover #statLabel{
+#SandwichHbox:hover #sandLabel,#DrinksHbox:hover #drinkLabel,#MyCartHbox:hover #cartLabel,#AdminHbox:hover #adminLabel,#LogoutHbox:hover #logoutLabel,#StatHbox:hover #statLabel,#tablesHbox:hover #tablesLabel{
 	-fx-text-fill: #f04f25;
 }
 #SandwichHbox:hover #sandIcon{
@@ -123,4 +126,7 @@
 }
 #StatHbox:hover #statIcon{
 	-fx-image: url('../Resources/stat.png');
+}
+#tablesHbox:hover #tablesIcon{
+	-fx-image: url('../Resources/restaurant_table.png');
 }

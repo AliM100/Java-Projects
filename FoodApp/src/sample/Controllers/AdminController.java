@@ -69,17 +69,18 @@ public class AdminController implements Initializable {
 	
     @FXML
     void modifyprice(MouseEvent event) throws IOException {
-     	Parent parent=FXMLLoader.load(getClass().getResource("../Views/Modify_Prices.fxml"));
- 		  Stage stage=new Stage();
- 		  stage.setScene(new Scene(parent));
- 		  stage.show();
+    	Stage s=StageFactory.getstage(((Button)event.getSource()).getId());
+	    s.show();
+	    s.setOnHidden(e->{
+	    });
     } 
     @FXML
     void addtable(MouseEvent event) throws IOException {
-     	Parent parent=FXMLLoader.load(getClass().getResource("../Views/addtable.fxml"));
- 		  Stage stage=new Stage();
- 		  stage.setScene(new Scene(parent));
- 		  stage.show();
+    	Stage s=StageFactory.getstage(((Button)event.getSource()).getId());
+	    s.show();
+	    s.setOnHidden(e->{
+	    	refresh("productPUp");
+	    });
     } 
 	@FXML
 	public void remove(MouseEvent event) {
@@ -99,8 +100,8 @@ public class AdminController implements Initializable {
 		remove.setFocusTraversable(false);
 		removeAd.setFocusTraversable(false);
 		removeCus.setFocusTraversable(false);
-		//only refresh table if product removed
-		if(s.equals("add") || s.equals("remove")) {
+		//only refresh table if product removed or added
+		if(s.equals("add") || s.equals("remove") || s.equals("productPUp")) {
 			table.getItems().clear();
 			ArrayList<Sandwich> sl;
 			ArrayList<Drink> dl;

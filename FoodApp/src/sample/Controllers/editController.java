@@ -19,6 +19,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Model.DB;
 import sample.Model.Tables;
+import sample.Model.alerts;
 import sample.Model.temp;
 
 public class editController {
@@ -96,6 +97,11 @@ public class editController {
 		}
    
     	DB.updatetable(T);
+    	if(isreserved.isSelected())
+    		alerts.Noti("Reservation completed");
+    	else
+    		alerts.Noti("Reservation removed");
+    	closeAction();
     }
     
     @FXML
