@@ -106,27 +106,32 @@ public class editController {
     
     @FXML
     void initialize() throws Exception {
-    	 int tid=temp.gettid();
-    	System.out.println(tid);
-    	Tables table;
-    	table=DB.getTable(tid);
-    	tabnum.setText(""+tid);
-    	tabcapacity.setText(""+table.getCapacity());
-    	if(table.getCid()!=0)
-    	{
-    		String a=DB.getcustnametel(table.getCid());
-    		custname.setText(a);
-    		custtel.setText(String.valueOf(DB.gettabtel(tid)));
-    	}else {
-    		String a=table.getName();
-    		custname.setText(a);
-    		custtel.setText(String.valueOf(table.getTel()));
+    	try {
+    		int tid=temp.gettid();
+        	System.out.println(tid);
+        	Tables table;
+        	table=DB.getTable(tid);
+        	tabnum.setText(""+tid);
+        	tabcapacity.setText(""+table.getCapacity());
+        	if(table.getCid()!=0)
+        	{
+        		String a=DB.getcustnametel(table.getCid());
+        		custname.setText(a);
+        		custtel.setText(String.valueOf(DB.gettabtel(tid)));
+        	}else {
+        		String a=table.getName();
+        		custname.setText(a);
+        		custtel.setText(String.valueOf(table.getTel()));
+        	}
+        	if((table.getIsreserved()).equals("Yes"))
+        	{
+        		isreserved.setIndeterminate(true);
+        	}
+        	time.setText(table.getTime());
     	}
-    	if((table.getIsreserved()).equals("Yes"))
-    	{
-    		isreserved.setIndeterminate(true);
+    	catch(Exception e){
+    		
     	}
-    	time.setText(table.getTime());
     }
     
     

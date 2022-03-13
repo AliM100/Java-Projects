@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -568,10 +569,11 @@ public class DB {
 			}
 		public static void insertO(int cid) throws Exception {
 			if (!d.isConnected()) throw new Exception();
-			String st = "INSERT INTO Totalorders VALUES (?,?);";
+			String st = "INSERT INTO Totalorders VALUES (?,?,?);";
 			PreparedStatement p = c.prepareStatement(st);
 			p.setInt(1,cid);
 			p.setInt(2,1);
+			p.setDate(3, java.sql.Date.valueOf("2013-09-04"));
 			if (p.execute()) throw new Exception();
 		}
 
@@ -695,4 +697,52 @@ public class DB {
 			
 		}
 		
+		 public static int getCnbs(LocalDate startDate, LocalDate finishDate) throws Exception {
+		        if (!d.isConnected())
+		            throw new Exception();
+		        java.sql.Date fromDate = java.sql.Date.valueOf(startDate);
+		        java.sql.Date toDate = java.sql.Date.valueOf(finishDate);
+		        PreparedStatement statement = c.prepareStatement("SELECT * FROM Client WHERE CCreationTime between ? and ?");
+		        statement.setDate(1, fromDate);
+		        statement.setDate(2, toDate);
+		        ResultSet results = statement.executeQuery();
+
+		        int nb = 0;
+		        while (results.next()) {
+		            nb += 1;
+		        }
+		        return nb;
+		    }
+		 
+		 public static int getPnbs(LocalDate startDate, LocalDate finishDate) throws Exception {
+		        if (!d.isConnected())
+		            throw new Exception();
+		        java.sql.Date fromDate = java.sql.Date.valueOf(startDate);
+		        java.sql.Date toDate = java.sql.Date.valueOf(finishDate);
+		        PreparedStatement statement = c.prepareStatement("SELECT * FROM Product WHERE PCreationTime between ? and ?");
+		        statement.setDate(1, fromDate);
+		        statement.setDate(2, toDate);
+		        ResultSet results = statement.executeQuery();
+		        int nb = 0;
+		        while (results.next()) {
+		            nb += 1;
+		        }
+		        return nb;
+		    }
+		
+		 public static int getTO(LocalDate startDate, LocalDate finishDate) throws Exception {
+		        if (!d.isConnected())
+		            throw new Exception();
+		        java.sql.Date fromDate = java.sql.Date.valueOf(startDate);
+		        java.sql.Date toDate = java.sql.Date.valueOf(finishDate);
+		        PreparedStatement statement = c.prepareStatement("SELECT sum(Totalorders) FROM totalorders WHERE odate between ? and ?");
+		        statement.setDate(1, fromDate);
+		        statement.setDate(2, toDate);
+		        ResultSet results = statement.executeQuery();
+		        int nb = 0;
+		        while (results.next()) {
+		            nb = results.getInt(1);
+		        }
+		        return nb;
+		    }
 }

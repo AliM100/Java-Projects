@@ -26,6 +26,7 @@ create table CLIENT (
    CNAME                varchar(50)          null,
    CPASS                varchar(500)         null,
    EMAIL                varchar(100)         null,
+   CCreationTime		Datetime			 null,
    constraint PK_CLIENT primary key (CID)
 )
 go
@@ -71,6 +72,7 @@ create table PRODUCT (
    PNAME                varchar(50)          null,
    PPRICE               float                null,
    PIMAGE               varchar(200)         null,
+   PCreationTime		Datetime			 null,
    constraint PK_PRODUCT primary key (PID)
 )
 go
@@ -227,7 +229,7 @@ GO
 CREATE PROCEDURE createCus @name nvarchar(50),@pass nvarchar(500),@email nvarchar(100)
 AS
 set nocount on
-insert into client values(@name,@pass,@email)
+insert into client values(@name,@pass,@email,GETDATE())
 declare @cid int,@deliveryID int
 declare @DID table (DID int)
 set @cid=(select cid from CLIENT where cname=@name)
@@ -302,21 +304,15 @@ go
 --for gui
 Create table totalorders(
 Cid int,
-TotalOrders int
+TotalOrders int,
+Odate datetime
 )
 go
+
 create trigger TI_TOTALORDERS on totalorders instead of insert as
 begin
 set NOCOUNT ON
-	if exists ( select T.Cid from totalorders T,inserted i where i.cid=T.cid)
-	begin
-		declare @TO int,@cid int
-		set @TO=(select TotalOrders from inserted)
-		set @CID=(select cid from inserted)
-		update totalorders set TotalOrders=@TO+1 where cid=@cid
-		return
-	end
-	insert into totalorders values((select cid from inserted),1)
+	insert into totalorders values((select cid from inserted),1,GETDATE())
     return
 end
 go
@@ -577,7 +573,7 @@ set nocount on
 	set @name=(select Cname from inserted)
 	set @pass=(select Cpass from inserted)
 	set @email=(select Email from inserted)
-	insert into Client values(@name,HASHBYTES('SHA1',@pass),@email)
+	insert into Client values(@name,HASHBYTES('SHA1',@pass),@email,GETDATE())
 	print 'Client insertion complete'
     return
 /*  Errors handling  */
@@ -607,7 +603,7 @@ set nocount on
 	set @image=(select Pimage from inserted)
 	set @price=(select Pprice from inserted)
 	set @type=(select Ptype from inserted)
-	insert into Product values(@type,@name,@price,@image)
+	insert into Product values(@type,@name,@price,@image,GETDATE())
 	print 'Product insertion complete'
     return
 /*  Errors handling  */
