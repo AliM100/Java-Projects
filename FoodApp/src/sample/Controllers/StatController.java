@@ -37,5 +37,14 @@ public class StatController implements Initializable {
                 e.printStackTrace();
             }
         }
+        else {
+            try {
+                tc.setText("" + DB.getCnbs());
+                to.setText("" + DB.getTO());
+                tp.setText("" + DB.getPnbs());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
